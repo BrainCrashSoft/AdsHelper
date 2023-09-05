@@ -11,6 +11,9 @@ android {
         targetSdk 33
 
         consumerProguardFiles "consumer-rules.pro"
+        aarMetadata {
+            minCompileSdk = 19
+        }
     }
 
     buildTypes {
@@ -22,6 +25,11 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
     }
 }
 

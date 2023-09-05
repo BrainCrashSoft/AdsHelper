@@ -1,5 +1,40 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 plugins {
+    id 'java'
     id 'com.android.application' version '8.0.1' apply false
     id 'com.android.library' version '8.0.1' apply false
+    id 'maven-publish'
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'it.braincrash.adshelper'
+            artifactId = 'library'
+            version = '1.0'
+
+            from components.java
+        }
+    }
+}
+
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            groupId = 'it.braincrash'
+//            artifactId = 'AdsHelper'
+//            version = "1.0"
+//            from components.java
+//
+//            pom {
+//                description = 'A description of my library'
+//            }
+//        }
+//    }
+//}
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
